@@ -247,29 +247,30 @@
      * 
      * @param {EditorJS} editor - editor js instance
      */
-     async init(editor) {
+     init(editor) {
           
-            try {
-    
-                await editor.isReady;
+		//We have to wrap it to avoid 'unhandled rejection!' for Async/Await
+		async function waitForReady() {
+        	await editor.isReady;
+		 } 
 
-                //--- Now it is time to init SoSie's plugins, which are init helper for tools ---
-                
-                //This will attach bunny's injector so we will be able
-                //to plants carots where we want in the field of Blocks.
-                //inside in the text where cursor has been positionned (inline mode) 
-                //or after current selected block (block mode)
-                Embed.init(editor);
-                
-                //--------------------------------------------------------------------------------
-            
-            } catch (reason) {
-                console.log(reason);
-                console.warn(`SoSIE editor initialization failed because of ${reason}`)
-            }
-            
-            return editor;
+		//as suggested https://thecodebarbarian.com/unhandled-promise-rejections-in-node.js.html	
+		//editor is a Promise now, because an async function returns a promise
+		 waitForReady().catch((reason)=>{
+            console.error(`SoSIE editor initialization failed ${reason}`,reason);
+   		 });
+
+        //--- Now it is time to init SoSie's plugins, which are init helper for tools ---
+        
+        //This will attach bunny's injector so we will be able
+        //to plants carots where we want in the field of Blocks.
+        //inside in the text where cursor has been positionned (inline mode) 
+        //or after current selected block (block mode)
+        Embed.init(editor);
+        
+        //--------------------------------------------------------------------------------
+              
+        return editor;
      }
             
-   
 }

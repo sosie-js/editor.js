@@ -7,41 +7,6 @@
 ## Installation Guide
 
 There are mainly the same steps as  [Editor.js](http://editorjs.io/)
-except you will have to wrap editor calls with editor.then(function (editor) 
-
-Thus
-
-```js
-
-   /**
-     * Saving example
-     */
-    saveButton.addEventListener('click', function () {
-        editor.save().then((savedData) => {
-            cPreview.show(savedData, document.getElementById("output"));
-        });
-    });
-
- });
-
-```
-
-becomes
-
-```js
-
-   /**
-     * Saving example
-     */
-    saveButton.addEventListener('click', function () {
-      editor.then(function (editor) {
-        editor.save().then((savedData) => {
-            cPreview.show(savedData, document.getElementById("output"));
-        });
-      });
-    });
-
-```
 
 ### Step 1. Load Editor's core
 
@@ -73,5 +38,5 @@ To activate for the plugin embed see [homepage of the plugin](https://github.com
 ## Credits and references
 
 - We used editor js (https://editorjs.io) as core, SoSIE is just a wrapper for initialisation facilities.
-- Be warned, minifying the code using babel, terser or uglify-js compressor or with webpack or not but this breaks all so for now use only the sources.
+- Be warned, minifying the code using babel throughout webpack or uglify-js compressor breaks all so for now.
 
