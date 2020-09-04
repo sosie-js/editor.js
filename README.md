@@ -2,7 +2,7 @@
 
 ## Demo
 
-[SoSIE shows how to inject embed](http://sosie.sos-productions.com/);
+[SoS正 (aka SoSIE for Westeners) shows how to inject embed](http://sosie.sos-productions.com/);
 
 ## Installation Guide
 
@@ -73,6 +73,6 @@ To activate for the plugin embed see [homepage of the plugin](https://github.com
 
 ## Credits and references
 
-- We used editor js (https://editorjs.io) as core, SoS正 (aka SoSIE for Westeners) is just a wrapper for initialisation facilities.
+- We used editor js (https://editorjs.io) as core, SoSIE is just a wrapper for initialisation facilities.
 - Be warned, minifying the code using babel, terser or uglify-js compressor or with webpack or not but this breaks all so for now use only the sources.
 
