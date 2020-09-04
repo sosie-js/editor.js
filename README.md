@@ -45,12 +45,11 @@ becomes
 
 ### Step 1. Load Editor's core
 
-Get Editor.js itself. 
-
+Get [Editor.js](https://github.com/codex-team/editor.js/) itself. 
 
 ### Step 2. Get inspired by the code of examples
 
-We took example.html as basis for example.
+We took [example.html](https://raw.githubusercontent.com/codex-team/editor.js/next/example/example.html) located in example/  as basis.
 
 ### Step 3. Install some plugin
 
@@ -58,7 +57,7 @@ Only one plugin for now is available.
 
  Plugin | Description
 -- | -- 
-[embed](https://twitter.com/codex_team) | Add the WANTED ([#36](https://github.com/editor-js/embed/issues/36)+[#16](https://github.com/editor-js/embed/issues/16)+[#11](https://github.com/editor-js/embed/issues/11)) inline injector to [Embed tool](https://github.com/editor-js/embed)
+[embed](https://github.com/sosie-js/embed) | Add the WANTED ([#36](https://github.com/editor-js/embed/issues/36)+[#16](https://github.com/editor-js/embed/issues/16)+[#11](https://github.com/editor-js/embed/issues/11)) inline injector to [Embed tool](https://github.com/editor-js/embed)
 
 
 Plugins are stored into plugins/ and can be installed like for tools using git sub modules
