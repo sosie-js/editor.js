@@ -2,8 +2,7 @@
 
 ## Demo
 
-    [SoSIE shows how to inject embed](http://sosie.sos-productions.com/index.html)
-
+[SoSIE shows how to inject embed](http://sosie.sos-productions.com/);
 
 ## Installation Guide
 
