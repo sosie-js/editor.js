@@ -7,7 +7,7 @@
 ## Installation Guide
 
 There are mainly the same steps as  [Editor.js](http://editorjs.io/)
-except you will have to wrap editor calls with editor.then(function (editor) {
+except you will have to wrap editor calls with editor.then(function (editor) 
 
 Thus
 
@@ -73,6 +73,6 @@ To activate for the plugin embed see [homepage of the plugin](https://github.com
 
 ## Credits and references
 
-- We used editor js (https://editorjs.io) as core, SOSIE is just a wrapper for initialisation facilities.
+- We used editor js (https://editorjs.io) as core, SoS正 (aka SoSIE for Westeners) is just a wrapper for initialisation facilities.
 - Be warned, minifying the code using babel, terser or uglify-js compressor or with webpack or not but this breaks all so for now use only the sources.
 
