@@ -23,7 +23,7 @@
             
             if(!custom) this.addMenuItemLogo({
                 logo:'http://sosie.sos-productions.com/assets/sosie.png',
-                 url:'https://www.chatwork.com/sos-productions', 
+                 url:'https://github.com/sosie-js/editor.js/', 
                  app:'SoS正', 
                  version:'Beta', 
                  title:'Improved Editor for Rectification (C2020) SoS-productions.com', 
