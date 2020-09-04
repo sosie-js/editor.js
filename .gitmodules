@@ -1,0 +1,54 @@
+[submodule "tools/inline-code"]
+	path = tools/inline-code
+	url = https://github.com/editor-js/inline-code
+[submodule "tools/header"]
+	path = tools/header
+	url = https://github.com/editor-js/header
+[submodule "tools/delimiter"]
+	path = tools/delimiter
+	url = https://github.com/editor-js/delimiter
+[submodule "tools/list"]
+	path = tools/list
+	url = https://github.com/editor-js/list
+[submodule "tools/quote"]
+	path = tools/quote
+	url = https://github.com/editor-js/quote
+[submodule "tools/simple-image"]
+	path = tools/simple-image
+	url = https://github.com/editor-js/simple-image
+[submodule "src/components/tools/paragraph"]
+	path = src/components/tools/paragraph
+	url = https://github.com/editor-js/paragraph
+[submodule "tools/marker"]
+	path = tools/marker
+	url = https://github.com/editor-js/marker
+[submodule "tools/code"]
+	path = tools/code
+	url = https://github.com/editor-js/code
+[submodule "tools/image"]
+	path = tools/image
+	url = https://github.com/editor-js/image
+[submodule "tools/embed"]
+	path = tools/embed
+	url = https://github.com/editor-js/embed
+[submodule "tools/table"]
+	path = tools/table
+	url = https://github.com/editor-js/table
+[submodule "tools/checklist"]
+	path = tools/checklist
+	url = https://github.com/editor-js/checklist
+[submodule "tools/link"]
+	path = tools/link
+	url = https://github.com/editor-js/link
+[submodule "tools/raw"]
+	path = tools/raw
+	url = https://github.com/editor-js/raw
+[submodule "tools/warning"]
+	path = tools/warning
+	url = https://github.com/editor-js/warning
+[submodule "tools/underline"]
+	path = tools/underline
+	url = https://github.com/editor-js/underline
+[submodule "plugins/embed"]
+	path = plugins/embed
+	url = https://github.com/sosie-js/embed

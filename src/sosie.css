@@ -1,0 +1,89 @@
+   /**
+    * sosie navbar
+    * 
+    **/
+   
+   
+     ul.topnav {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        background-color: #333;
+        z-index: 30;
+      }
+
+   /*   button {
+        background-color: #333 !important;
+      }*/
+      
+      ul.topnav li {float: left;}
+
+      
+      
+      ul.topnav li a {
+        display: block;
+        color: white;
+        text-align: center;
+        margin-top: 0px;
+        padding-top: 8px;
+        padding-bottom: 14px;
+        padding-left: 8px;
+        padding-right: 8px;
+        text-decoration: none;
+      }
+      
+       ul.topnav li a.sosiebtn {
+            background-color: #4C50AF !important;
+       }
+       
+      ul.topnav li a.injectbtn {
+            padding-right:8;
+            padding-left:8;
+            bgcolor:#1e1e1e;
+            border-radius: 5px;
+            border: 1px solid #e6e9eb;
+      }
+      
+     /* ul.topnav li a:hover:not(.active) {background-color: #111;}*/
+
+     /* ul.topnav li a.active {background-color: #1e1e1e;}
+
+	  ul.topnav li a.news {
+			background-color: #4C50AF;
+			color: yellow;
+	  }*/
+
+      ul.topnav li.right {float: right;}
+
+      @media screen and (max-width: 100%) {
+        ul.topnav li.right, 
+        ul.topnav li {float: none;}
+      }
+
+       /* The navigation bar */
+        .navbar {
+            overflow: hidden;
+            background-color: #333;
+            position: fixed; /* Set the navbar to fixed position */
+            top: 0; /* Position the navbar at the top of the page */
+            height: 3em;
+            width: 100%; /* Full width */
+            z-index: 20;
+        }
+
+        /* Links inside the navbar */
+        .navbar a {
+            float: left;
+            display: block;
+            color: #f2f2f2;
+            text-align: center;
+            text-decoration: none;
+        }
+
+        /* Change background on mouse-over */
+        .navbar a:hover {
+        background: #ddd;
+        color: black;
+        }
+      
