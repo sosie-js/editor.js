@@ -58,7 +58,7 @@ Only one plugin for now is available.
 
  Plugin | Description
 -- | -- 
-[embed](https://twitter.com/codex_team) | Add the WANTED inline injector to [Embed tool](https://github.com/editor-js/embed)
+[embed](https://twitter.com/codex_team) | Add the WANTED ([#36](https://github.com/editor-js/embed/issues/36)+[#16](https://github.com/editor-js/embed/issues/16)+[#11](https://github.com/editor-js/embed/issues/11)) inline injector to [Embed tool](https://github.com/editor-js/embed)
 
 
 Plugins are stored into plugins/ and can be installed like for tools using git sub modules
