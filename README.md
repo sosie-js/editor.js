@@ -30,6 +30,7 @@ Plugins are stored into plugins/ and can be installed like for tools using git s
 ```shell
 yarn install
 yarn pull_tools
+yarn checkout_tools
 ```
 
 To activate for the plugin embed see [homepage of the plugin](https://github.com/sosie-js/embed);
