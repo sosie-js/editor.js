@@ -124,7 +124,7 @@
      * @param {string} text - the text for the button
      * @param {string} style - the style for the item, (used to tweak colors)
      **/    
-   addMenuItemBtn({type,url,mode,custom,title,text,style}) {
+   addMenuItemBtn({type, interactive, url, mode, custom, title, text, style}) {
        const item=this._make('li',null,{});
        let anchor,atr={
              href:'#',
@@ -134,7 +134,7 @@
         if(type == 'injectbtn') {
             anchor=this._make('a',type,atr);
             anchor.appendChild(document.createTextNode(text));
-            this._inject(anchor,url,title,mode,custom);
+            this._inject(anchor, interactive, url, title, mode, custom);
         }else { //logo
              if(style) atr.style=style;
              anchor=this._make('a',null,atr);
@@ -177,12 +177,12 @@
         * @param  {string} mode      - injection mode 'inline'(*default) or 'block'
         * @param  {boolean} custom   - false, wille use Embed.SERVICES else custom user sercices
         */
-        _inject(anchor,url,title,mode,custom) {
-            (function(url,title,mode,custom){
+        _inject(anchor, interactive, url, title, mode, custom) {
+            (function(url, interactive, title, mode, custom){
                 anchor.addEventListener("click", function() {
-                injectEmbed(url,title,mode,custom);
+                injectEmbed(url, interactive, title, mode, custom);
                 return false;
-            }, false);})(url,title,mode||'inline',custom||false);
+            }, false);})(url, interactive, title, mode||'inline', custom||false);
         }
     
        /**
