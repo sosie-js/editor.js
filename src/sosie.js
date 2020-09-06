@@ -1,14 +1,25 @@
-/**
- *  Wrapper over Editor.js to add initialization and injection facilities
-**/
+
+  /**
+    * Wrapper facility to improve and customize codex-team's Editor.js 
+    *
+    * @Note Add plugins to expand facilities of tool, a plugin is a sort of bridge between editor.js core and tools 
+    * @sample https://sosie.sos-productions.com/
+    * @author sos-productions.com
+    * @version 2.0
+    * @history
+    *    1.0 (A long time ago) - Initial version from 
+    *    2.0 (06.10.2020) - Register added and data example deported
+    **/
+
+
 
 /**
  * @class SoSIE
  * @classdesc SoS improvements for Editor.js 2.0
  */
  class SoSIE {
-    
 
+ 
    /**
    * @param {EditorConfig|string|undefined} [configuration] - user configuration
    * @param {boolean] custom , if not specified use demo by default.
@@ -18,8 +29,8 @@
             /**
             * Prepare SoSIE Menu Bar
             */
-        
             this.initMenuBar();
+            
             
             if(!custom) this.addMenuItemLogo({
                 logo:'http://sosie.sos-productions.com/assets/sosie.png',
@@ -37,69 +48,18 @@
             const editor = new EditorJS(configuration);
             
             /**
-            * Fill in the Menubar with MenuItems rendered as buttons
+             * Keep a reference , because Plugin will need it during its registration
+             */
+            editor.sosie=this;
+            
+            
+            /**
+            * Fill in the Menubar samplePlugin with MenuItems rendered as buttons (if one is provided)
             */
             if(!custom) {
-                
-                //  Inline injection of a block handled by a user service 'notice custom set to true for that).
-                this.addMenuItemBtn({
-                    type:'injectbtn',
-                    url:'http://sos-productions.com/7',
-                    mode:'inline',
-                    custom:true,
-                    title:"I am SoSIE, here are lucky people behind the flags click on it!",
-                    text:"Bunny in line"
-                });
-            
-                // Injection in Block mode, using youtube service
-                this.addMenuItemBtn({
-                    type:'injectbtn',
-                    url:'https://www.youtube.com/watch?v=NW96wIelVqg',
-                    mode:'block',
-                    custom:false,
-                    title:"'Ich bin ein Berliner': Robert Kennedy Jr does a remake of his uncle JFK 60 years later",
-                    text:"Berliner in block"
-                });
-                
-                // Injection in Block mode, using vimeo service
-                this.addMenuItemBtn({
-                    type:'injectbtn',
-                    url:'https://vimeo.com/357871593',
-                    mode:'block',
-                    custom:false,
-                    title:"COMING FOR YOU - Based on a True Story That Affected 100 Million People",
-                    text:"Coming for you"
-                });
-                
-                // Injection in Block mode,
-                this.addMenuItemBtn({
-                    type:'injectbtn',
-                    url:'https://youtu.be/E8q2kdTeGzo',
-                    mode:'block',
-                    custom:false,
-                    title:"Eternal Fifty Minutes | Coming for You II",
-                    text:"Eternal Fifty Minutes"
-                });
-            
-                // Injection in Block mode,
-                this.addMenuItemBtn({
-                    type:'injectbtn',
-                    url:'https://www.youtube.com/watch?v=Mg5budPRY1Q',
-                    mode:'block',
-                    custom:false,
-                    title:"‘Claws of the Red Dragon’ exposes connection between Huawei and CCP",
-                    text:"Claws of the Red Dragon"
-                });
-                
-                // Injection in Block mode,, an other vimeo
-                this.addMenuItemBtn({
-                    type:'injectbtn',
-                    url:'https://vimeo.com/400300749',
-                    mode:'block',
-                    custom:false,
-                    title:"Transcending Fear: The Story of Gao Zhisheng",
-                    text:"Transcending Fear: The Story of Gao Zhisheng"
-                }); 
+               window.SoSIE__plugins.forEach(function(plugin){
+                   if(window.hasOwnProperty("sample"+plugin))  window["sample"+plugin](editor);
+               });
             }
             
             this.showMenuBar('sosie');
@@ -143,7 +103,15 @@
         let h=document.getElementById(holder);
         h.appendChild(this.menu);
     }
-        
+      
+    /**
+    * declare a plugin so SoSIE will use init it.
+    * @param {string] plugin - plugin name (ex: 'Embed')
+    **/ 
+    static register(plugin) {
+        if(typeof plugins == 'undefined') window.SoSIE__plugins=new Array();
+        Array.push(window.SoSIE__plugins,plugin);
+    }
         
     /**
      * Creates the item of the given type
@@ -203,7 +171,7 @@
         * @note this attribute requires special attention :
         *    <a onClick='javascript:'+code+';return false'>, will not work
         *    anchor.onclick=new Function(code); is an unsafe and risky way
-        * @param  {Element} anchor   - the dom of the a tag to attchat the click
+        * @param  {Element} anchor   - the dom of the a tag to attach the click
         * @param  {string} url       - the url to resolve to an embedded service
         * @param  {string} title     - the title will become the embed caption
         * @param  {string} mode      - injection mode 'inline'(*default) or 'block'
@@ -241,7 +209,8 @@
 
             return el;
         }
-    
+        
+
     /**
      * Initialise editor and plugins
      * 
@@ -249,28 +218,27 @@
      */
      init(editor) {
           
-		//We have to wrap it to avoid 'unhandled rejection!' for Async/Await
-		async function waitForReady() {
-        	await editor.isReady;
-		 } 
+        //We have to wrap it to avoid 'unhandled rejection!' for Async/Await
+        async function waitForReady() {
+            await editor.isReady;
+        } 
 
-		//as suggested https://thecodebarbarian.com/unhandled-promise-rejections-in-node.js.html	
-		//editor is a Promise now, because an async function returns a promise
-		 waitForReady().catch((reason)=>{
+        //as suggested https://thecodebarbarian.com/unhandled-promise-rejections-in-node.js.html	
+        //editor is a Promise now, because an async function returns a promise
+        waitForReady().catch((reason)=>{
             console.error(`SoSIE editor initialization failed ${reason}`,reason);
-   		 });
+        });
 
-        //--- Now it is time to init SoSie's plugins, which are init helper for tools ---
-        
-        //This will attach bunny's injector so we will be able
-        //to plants carots where we want in the field of Blocks.
-        //inside in the text where cursor has been positionned (inline mode) 
-        //or after current selected block (block mode)
-        Embed.init(editor);
-        
-        //--------------------------------------------------------------------------------
+        //Now it is time to init SoSie's plugins, which are init helper for tools 
+        window.SoSIE__plugins.forEach(function(plugin){
+             if(window.hasOwnProperty(plugin)&&(typeof window[plugin]['init'] != 'undefined')) { 
+                //executeFunctionByName(plugin+".init",window,editor);
+                window[plugin]["init"](editor);
+             }
+        });
               
         return editor;
      }
             
 }
+
