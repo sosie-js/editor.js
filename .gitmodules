@@ -1,0 +1,3 @@
+[submodule "plugins/embed"]
+	path = plugins/embed
+	url = https://github.com/sosie-js/embed
