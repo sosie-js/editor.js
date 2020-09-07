@@ -1,8 +1,0 @@
-[submodule "plugins/embed"]
-	path = plugins/embed
-	url = https://github.com/sosie-js/embed
-	branch = Interactive
-[submodule "plugins/embed/plugins/embed"]
-	path = plugins/embed/plugins/embed
-	url = https://github.com/sosie-js/embed
-	branch = Interactive
