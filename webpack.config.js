@@ -29,7 +29,7 @@ module.exports = (env, argv) => {
 
   return {
     entry: {
-      editor: ['@babel/polyfill/noConflict','./src/sosie.js'], /**/
+      editor: ['./src/sosie.js'], /*'@babel/polyfill/noConflict',*/
     },
 
     output: {
@@ -69,17 +69,6 @@ module.exports = (env, argv) => {
 
     module: {
       rules: [
-        {
-          test: /\.js$/,
-          use: [
-            {
-              loader: 'babel-loader',
-              options: {
-                cacheDirectory: true,
-              },
-            }
-          ],
-        },
          {
           test: /\.ts$/,
           use: [
