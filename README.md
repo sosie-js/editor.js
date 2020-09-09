@@ -39,5 +39,4 @@ To activate for the plugin embed see [homepage of the plugin](https://github.com
 ## Credits and references
 
 - We used editor js (https://editorjs.io) as core, SoSIE is just a wrapper for initialisation facilities.
-- Be warned, minifying the code using babel throughout webpack or uglify-js compressor breaks all so for now.
 
