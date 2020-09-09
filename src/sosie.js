@@ -5,11 +5,12 @@
     * @Note Add plugins to expand facilities of tool, a plugin is a sort of bridge between editor.js core and tools 
     * @sample https://sosie.sos-productions.com/
     * @author sos-productions.com
-    * @version 2.1
+    * @version 3.0
     * @history
     *    1.0 (A long time ago) - Initial version from 
     *    2.0 (06.10.2020) - Register added and data example deported
     *    2.1 (09.10.2020) - Interactive support for plugin Emped with comments
+    *    3.0 (09.10.2020) - Bundle attempt
     **/
 
 
@@ -18,7 +19,7 @@
  * @class SoSIE
  * @classdesc SoS improvements for Editor.js 2.0
  */
- class SoSIE {
+ export default class SoSIE {
 
  
    /**
