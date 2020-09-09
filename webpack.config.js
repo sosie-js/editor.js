@@ -29,7 +29,7 @@ module.exports = (env, argv) => {
 
   return {
     entry: {
-      editor: ['./src/sosie.js'],
+      editor: ['@babel/polyfill/noConflict','./src/sosie.js'], /**/
     },
 
     output: {
@@ -48,10 +48,12 @@ module.exports = (env, argv) => {
      */
     resolve: {
       modules: [path.join(__dirname, 'src'), 'node_modules'],
-      extensions: ['.js'],
+      extensions: ['.js','ts'],
     },
 
     plugins: [
+    
+    
       /** Pass variables into modules */
       new webpack.DefinePlugin({
         NODE_ENV: JSON.stringify(NODE_ENV),
@@ -59,7 +61,7 @@ module.exports = (env, argv) => {
       }),
 
       new webpack.BannerPlugin({
-        banner: `Editor.js\n\n@version ${VERSION}\n\n@licence Apache-2.0\n@author SoSie  uses Editor js codex-team <https://editorjs.io>`,
+        banner: `Editor.js\n\n@version ${VERSION}\n\n@licence Apache-2.0\n@author SoSIE / sos-productions.com.   Uses Editor js codex-team <https://editorjs.io>`,
       }),
 
       new LicenseWebpackPlugin(),
@@ -76,6 +78,20 @@ module.exports = (env, argv) => {
                 cacheDirectory: true,
               },
             }
+          ],
+        },
+         {
+          test: /\.ts$/,
+          use: [
+            {
+              loader: 'babel-loader',
+              options: {
+                cacheDirectory: true,
+              },
+            },
+            {
+              loader: 'ts-loader',
+            },
           ],
         },
         {
