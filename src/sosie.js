@@ -20,7 +20,7 @@
  * @class SoSIE
  * @classdesc SoS improvements for Editor.js 2.0
  */
-class SoSIE {
+export default class SoSIE {
 
  
    /**
