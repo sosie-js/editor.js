@@ -5,12 +5,13 @@
     * @Note Add plugins to expand facilities of tool, a plugin is a sort of bridge between editor.js core and tools 
     * @sample https://sosie.sos-productions.com/
     * @author sos-productions.com
-    * @version 3.0
+    * @version 4.0
     * @history
     *    1.0 (A long time ago) - Initial version from 
-    *    2.0 (06.10.2020) - Register added and data example deported
-    *    2.1 (09.10.2020) - Interactive support for plugin Emped with comments
-    *    3.0 (09.10.2020) - Bundle attempt
+    *    2.0 (06.09.2020) - Register added and data example deported
+    *    2.1 (09.09.2020) - Interactive support for plugin Emped with comments
+    *    3.0 (09.09.2020) - Bundle attempt export default 
+    *    4.0 (10.09.2020) - History Dates were wrong 
     **/
 
 
@@ -19,7 +20,7 @@
  * @class SoSIE
  * @classdesc SoS improvements for Editor.js 2.0
  */
- export default class SoSIE {
+class SoSIE {
 
  
    /**
@@ -233,14 +234,16 @@
             console.error(`SoSIE editor initialization failed ${reason}`,reason);
         });
 
+    
         //Now it is time to init SoSie's plugins, which are init helper for tools 
         window.SoSIE__plugins.forEach(function(plugin){
              if(window.hasOwnProperty(plugin)&&(typeof window[plugin]['init'] != 'undefined')) { 
-                //executeFunctionByName(plugin+".init",window,editor);
+                console.info('executeFunctionByName('+plugin+').init',editor);
                 window[plugin]["init"](editor);
              }
         });
-              
+        
+       
         return editor;
      }
             

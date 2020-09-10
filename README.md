@@ -2,7 +2,7 @@
 
 ## Demo
 
-[SoS正 (aka SoSIE for Westeners) shows how to inject embed](http://sosie.sos-productions.com/);
+[SoS正 (aka SoSIE for Westeners) shows how to inject embed and configure tools](http://sosie.sos-productions.com/);
 
 ## Installation Guide
 
