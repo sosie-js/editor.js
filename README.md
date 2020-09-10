@@ -18,12 +18,12 @@ We took [example.html](https://raw.githubusercontent.com/codex-team/editor.js/ne
 
 ### Step 3. Install some plugin
 
-Only one plugin for now is available.
+Plugins for now is available.
 
  Plugin | Description
 -- | -- 
 [embed](https://github.com/sosie-js/embed) | Add the WANTED ([#36](https://github.com/editor-js/embed/issues/36)+[#16](https://github.com/editor-js/embed/issues/16)+[#11](https://github.com/editor-js/embed/issues/11)) inline injector to [Embed tool](https://github.com/editor-js/embed)
-
+[tool-configurator](https://github.com/sosie-js/tool-configurator) | Add the WISHED started from [#1280](https://github.com/codex-team/editor.js/issues/1280)+[#1157](https://github.com/codex-team/editor.js/issues/1157) avoiding [#1115] https://github.com/codex-team/editor.js/issues/1115
 
 Plugins are stored into plugins/ and can be installed like for tools using git sub modules
 
