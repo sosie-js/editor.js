@@ -2,3 +2,7 @@
 	path = plugins/embed
 	url = https://github.com/sosie-js/embed
         branch = Interactive
+[submodule "plugins/tool-configurator"]
+	path = plugins/tool-configurator
+	url = https://github.com/sosie-js/plugins/tool-configurator
+	branch = 1.0.0
