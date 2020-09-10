@@ -1,3 +1,7 @@
+//'use strict';
+
+//import {ToolConfigurator} from '../plugins/tool-configurator/src/toolconfigurator.js';
+
 
   /**
     * Wrapper facility to improve and customize codex-team's Editor.js 
@@ -11,15 +15,15 @@
     *    2.0 (06.10.2020) - Register added and data example deported
     *    2.1 (09.10.2020) - Interactive support for plugin Emped with comments
     *    3.0 (09.10.2020) - Bundle attempt
+    *    4.0 (09.10.2020) - Configurator
     **/
-
-
 
 /**
  * @class SoSIE
  * @classdesc SoS improvements for Editor.js 2.0
  */
- export default class SoSIE {
+ export default 
+class SoSIE {
 
  
    /**
@@ -44,6 +48,11 @@
                  style:'background-color: #4C50AF !important;'
             });
         
+            (async function lordOfTheConfigurator(configuration) {
+                const tlc=new ToolConfigurator(configuration);
+                await tlc.awaitFinished('Paragraph',300);
+            })(configuration);
+            
             /**
             * Create a Editor.js instance
             */
