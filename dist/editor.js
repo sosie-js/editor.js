@@ -1,7 +1,7 @@
 /*!
  * Editor.js
  * 
- * @version 0.4.0
+ * @version 0.5.0
  * 
  * @licence Apache-2.0
  * @author SoSIE / sos-productions.com.   Uses Editor js codex-team <https://editorjs.io>

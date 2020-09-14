@@ -6,3 +6,7 @@
 	path = plugins/tool-configurator
 	url = https://github.com/sosie-js/plugins/tool-configurator
 	branch = 1.0.0
+[submodule "plugins/script-loader"]
+	path = plugins/script-loader
+	url = https://github.com/sosie-js/script-loader
+	branch = 1.2.0
