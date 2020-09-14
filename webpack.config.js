@@ -34,7 +34,7 @@ module.exports = (env, argv) => {
 
     output: {
       path: path.resolve(__dirname, 'dist'),
-      filename: '[name].js',
+      filename: 'sosie.js',
       library: [ 'SoSIE' ],
       libraryTarget: 'umd',
     },
@@ -61,10 +61,12 @@ module.exports = (env, argv) => {
       }),
 
       new webpack.BannerPlugin({
-        banner: `Editor.js\n\n@version ${VERSION}\n\n@licence Apache-2.0\n@author SoSIE / sos-productions.com.   Uses Editor js codex-team <https://editorjs.io>`,
+        banner: `SoSIE.js\n\n@version ${VERSION}\n\n@licence Apache-2.0\n@author SoSIE / sos-productions.com.   Uses Editor js codex-team <https://editorjs.io>`,
       }),
 
-      new LicenseWebpackPlugin(),
+      new LicenseWebpackPlugin({
+	  outputFilename: 'sosie.licenses.txt'
+       })
     ],
 
     module: {

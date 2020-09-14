@@ -5,8 +5,8 @@
   <title>Script Loader integration example by sos-productions.com using SoS正</title>
   <meta name="author" content="sosie-js / sos-productions.com">
   <link href="https://fonts.googleapis.com/css?family=PT+Mono" rel="stylesheet">
-  <link href="assets/demo.css" rel="stylesheet">
-  <script src="assets/json-preview.js"></script>
+  <link href="../assets/demo.css" rel="stylesheet">
+  <script src="../assets/json-preview.js"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <link href="../dist/sosie.css" rel="stylesheet">
 </head>
@@ -101,10 +101,10 @@
         * Editor and plugins 
         */
         await loadScripts([
-            "../dist/editor.js",
-            "../plugins/embed/dist/bundle.js",
-            "../plugins/embed/dist/sample.js",
-            "../plugins/tool-configurator/dist/bundle.js",
+            "editor.js/dist/editor.js",
+            "editor.js/plugins/embed/dist/bundle.js",
+            "editor.js/plugins/embed/dist/sample.js",
+            "editor.js/plugins/tool-configurator/dist/bundle.js",
         ],nocache,mode);
         
         //The configuration is desencapsulated with the good classes context 

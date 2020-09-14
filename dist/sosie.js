@@ -1,5 +1,5 @@
 /*!
- * Editor.js
+ * SoSIE.js
  * 
  * @version 0.5.0
  * 
