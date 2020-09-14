@@ -6,3 +6,7 @@
 	path = plugins/embed
 	url = https://github.com/sosie-js/embed
 	branch = Interactive
+[submodule "plugins/script-loader"]
+	path = plugins/script-loader
+	url = https://github.com/sosie-js/script-loader
+	branch = 1.2.0

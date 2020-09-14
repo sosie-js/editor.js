@@ -6,7 +6,7 @@
     "sosiejs"
   ],
   "description": "SoS Improved Editor based on editor.js",
-  "main": "dist/editor.js",
+  "main": "dist/sosie.js",
   "scripts": {
     "build": "rimraf dist/* && cp src/sosie.css dist/sosie.css && yarn build:prod",
     "build:win": "rimraf dist && copy src/sosie.css dist/sosie.css && yarn build:prod",
@@ -23,7 +23,7 @@
     "lint:fix": "eslint src/ --ext .js --fix",
     "lint:init": "eslint src/ --ext .js --init",
     "pull_tools": "git submodule update --init --recursive",
-    "checkout_tools": "git submodule foreach git pull origin master"
+    "checkout_tools": "git submodule foreach git pull"
   },
   "author": "sos-productions",
   "license": "Apache-2.0",
