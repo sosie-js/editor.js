@@ -76,8 +76,6 @@
         /**
         * Load Tools
         */
-        
-        
         await loadTools([
             '@editorjs/header@latest',
             '@editorjs/simple-image@latest',
@@ -92,16 +90,23 @@
             '@editorjs/warning@latest',
             '@editorjs/marker@latest',
             '@editorjs/inline-code@latest',
-            '@editorjs/editorjs@latest',
             '@editorjs/paragraph@latest'
         ],nocache,mode);
         
         
         /**
-        * Editor and plugins 
+        * Editor core
         */
         await loadScripts([
-            "editor.js/dist/editor.js",
+            '@editorjs/editorjs@latest',
+            "editor.js/dist/sosie.js",
+        ],nocache,mode);
+        
+        
+        /**
+        * Plugins
+        */
+         await loadPlugins([
             "editor.js/plugins/embed/dist/bundle.js",
             "editor.js/plugins/embed/dist/sample.js",
             "editor.js/plugins/tool-configurator/dist/bundle.js",
