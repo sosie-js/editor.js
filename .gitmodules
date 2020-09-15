@@ -1,8 +1,12 @@
+[submodule "plugins/tool-configurator"]
+	path = plugins/tool-configurator
+	url = https://github.com/sosie-js/tool-configurator
+	branch = 1.0.0
 [submodule "plugins/embed"]
 	path = plugins/embed
 	url = https://github.com/sosie-js/embed
-        branch = Interactive
-[submodule "plugins/tool-configurator"]
-	path = plugins/tool-configurator
-	url = https://github.com/sosie-js/plugins/tool-configurator
-	branch = 1.0.0
+	branch = Interactive
+[submodule "plugins/script-loader"]
+	path = plugins/script-loader
+	url = https://github.com/sosie-js/script-loader
+	branch = 1.2.0
