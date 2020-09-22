@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Embed integration example by sos-productions.com using SoS正</title>
+  <title>Script Loader integration example by sos-productions.com using SoS正</title>
   <meta name="author" content="sosie-js / sos-productions.com">
   <link href="https://fonts.googleapis.com/css?family=PT+Mono" rel="stylesheet">
   <link href="../assets/demo.css" rel="stylesheet">
@@ -40,7 +40,8 @@
       </div>
     </div>
   </div>
-
+ <!-- Script Loader should be the first -->
+ <script src="../plugins/script-loader/src/index.js"></script>
   <!-- Load Tools -->
   <!--
    You can upload Tools to your project's directory and use as in example below.
@@ -50,45 +51,98 @@
    Read more in Tool's README file. For example:
    https://github.com/editor-js/header#installation
    -->
-  <script src="https://cdn.jsdelivr.net/npm/@editorjs/header@latest"></script><!-- Header -->
-  <script src="https://cdn.jsdelivr.net/npm/@editorjs/simple-image@latest"></script><!-- Image -->
-  <script src="https://cdn.jsdelivr.net/npm/@editorjs/delimiter@latest"></script><!-- Delimiter -->
-  <script src="https://cdn.jsdelivr.net/npm/@editorjs/list@latest"></script><!-- List -->
-  <script src="https://cdn.jsdelivr.net/npm/@editorjs/checklist@latest"></script><!-- Checklist -->
-  <script src="https://cdn.jsdelivr.net/npm/@editorjs/quote@latest"></script><!-- Quote -->
-  <script src="https://cdn.jsdelivr.net/npm/@editorjs/code@latest"></script><!-- Code -->
-  <script src="https://cdn.jsdelivr.net/npm/@editorjs/embed@latest"></script><!-- Embed -->
-  <script src="https://cdn.jsdelivr.net/npm/@editorjs/table@latest"></script><!-- Table -->
-  <script src="https://cdn.jsdelivr.net/npm/@editorjs/link@latest"></script><!-- Link -->
-  <script src="https://cdn.jsdelivr.net/npm/@editorjs/warning@latest"></script><!-- Warning -->
-
-  <script src="https://cdn.jsdelivr.net/npm/@editorjs/marker@latest"></script><!-- Marker -->
-  <script src="https://cdn.jsdelivr.net/npm/@editorjs/inline-code@latest"></script><!-- Inline Code -->
-
-  <!-- Load Editor.js's Core -->
-  <script src="https://cdn.jsdelivr.net/npm/@editorjs/editorjs@latest"></script>
-
   <!-- Load SoSIE + embed extension(s) -->
-  <!--script src="editor.js/src/sosie.js"></script-->
-  <script src="../dist/editor.js"></script>
-  <script src="../plugins/embed/dist/bundle.js"></script>
-  <script src="../plugins/embed/dist/sample.js"></script>
-  
   <!-- Initialization -->
   <script>
-
   
-    /**
-     * Saving button
-     */
-    const saveButton = document.getElementById('saveButton');
 
-    /**
-     * To initialize the Editor, create a new instance with configuration object
+     /**
+     * configure the Editor Tools before the Editor being initialized
+     * @note Hack because for now we cannot have async constructors
+     * @param {function} configurationHolder a function that returns user configuration {EditorConfig|string|undefined} 
+     * @param {boolean] custom , if not specified use demo by default.
+     * @return promise<EditorJS>
+     */
+    async function new_SoSIE(configurationHolder,custom) {
+    
+       /**
+        * Saving button
+        */
+        const saveButton = document.getElementById('saveButton');
+        
+        const nocache=false;
+        const mode='prod';
+        
+        /**
+        * Load Tools
+        */
+        await loadTools([
+            '@editorjs/header@latest',
+            '@editorjs/simple-image@latest',
+            '@editorjs/delimiter@latest',
+            '@editorjs/list@latest',
+            '@editorjs/checklist@latest',
+            '@editorjs/quote@latest',
+            '@editorjs/code@latest',
+            '@editorjs/embed@latest',
+            '@editorjs/table@latest',
+            '@editorjs/link@latest',
+            '@editorjs/warning@latest',
+            '@editorjs/marker@latest',
+            '@editorjs/inline-code@latest',
+            '@editorjs/paragraph@latest'
+        ],nocache,mode);
+        
+        
+        /**
+        * Editor core
+        */
+        await loadScripts([
+            '@editorjs/editorjs@latest',
+            "editor.js/dist/sosie.js",
+        ],nocache,mode);
+        
+        
+        /**
+        * Plugins
+        */
+         await loadPlugins([
+            "editor.js/plugins/embed/dist/bundle.js",
+            "editor.js/plugins/embed/dist/sample.js",
+            "editor.js/plugins/tool-configurator/dist/bundle.js",
+        ],nocache,mode);
+        
+        //The configuration is desencapsulated with the good classes context 
+        let configuration=configurationHolder();
+        
+        let ct=new ToolConfigurator(configuration);
+        
+        //This will avoid to hardcode sanitize rules in Paragraph tool.
+        //and use our rules defined in paragraph.text.allowedTags
+        //to avoid washing style tags deliberately by default (p tag is mandatory!)
+        await ct.awaitFinished('Paragraph',500);
+        
+        //checkConfigFinished('Paragraph');
+        var editor=new SoSIE(configuration,custom);
+         
+        /**
+        * Saving example
+        */
+        saveButton.addEventListener('click', function () {
+            editor.save().then((savedData) => {
+                cPreview.show(savedData, document.getElementById("output"));
+            });
+        });
+         
+        return editor;
+    }
+    
+    
+   /**
+     * To initialize the Editor, create a new instance with configuration object constructor
      * @see docs/installation.md for mode details
      */
-    
-    var editor = new SoSIE({
+     var editor=new_SoSIE(function(){ return {
     
       /**
        * Wrapper of Editor
@@ -111,6 +165,17 @@
           shortcut: 'CMD+SHIFT+H'
         },
 
+        /**
+        * NEW!: This tool has a common configuration for sanitizing and pasteConfig
+        */
+        paragraph: {
+          class: Paragraph,
+           text: {
+                type: "string",
+                allowedTags: "p,i,b,u,a[href],strong,em,br,dd,dt,dl,embed,div"
+            }
+        },
+        
         /**
          * Or pass class directly without any configuration
          */
@@ -278,6 +343,12 @@
             data : {
               text : 'Now after all these efforts, fun time and relaxation with SoSIE!. Click on the buttons on SoSIE menubar at the top after clicking somwhere to let the caret where you want to inject the surprises the malicious bunny has prepared for you. Enjoy watching great movies and documentaries nominated!'
             }
+          },
+            {
+            type : 'paragraph',
+            data : {
+              text : 'Now copy an html styled paragraph and its container p and paste it. they should no be washed by the crazy duo sanitize and configPaste.'
+            }
           }
         ]
       },
@@ -287,16 +358,13 @@
       onChange: function() {
         console.log('something changed');
       }
+    };}).then(editor => {
+        //Don't forget to convert promise to object back because async return a promise
+        window.editor=editor;
     });
-
-    /**
-     * Saving example
-     */
-    saveButton.addEventListener('click', function () {
-        editor.save().then((savedData) => {
-            cPreview.show(savedData, document.getElementById("output"));
-        });
-    });
+   
+   
+   
 
   </script>
 </body>

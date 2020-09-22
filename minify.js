@@ -16,7 +16,7 @@ minify({
 minify({
   compressor: terser,
   input: 'src/sosie.js',
-  output: 'dist/editor.js',
+  output: 'dist/sosie.js',
   callback: function(err, min) {}
 });
 

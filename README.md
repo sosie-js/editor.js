@@ -1,4 +1,6 @@
+![](https://badgen.net/badge/SoS正/Beta/f2a) ![](https://badgen.net/badge/editor.js/v0.6.0/blue)  
 <a href="https://sosie.sos-productions.com/editor.js/"><p align="center"><img src="https://capella.pics/79ce946a-d636-41cd-aa96-d3bc5ecfde03.jpg"></p></a>
+
 
 ## Demo
 
@@ -24,6 +26,7 @@ Plugins for now available:
 -- | -- 
 *[embed](https://github.com/sosie-js/embed) | Add the WANTED ([#36](https://github.com/editor-js/embed/issues/36)+[#16](https://github.com/editor-js/embed/issues/16)+[#11](https://github.com/editor-js/embed/issues/11)) inline injector to [Embed tool](https://github.com/editor-js/embed)
 [tool-configurator](https://github.com/sosie-js/tool-configurator) | Add the NEEDED rule configuration started from [#1280](https://github.com/codex-team/editor.js/issues/1280)+[#1157](https://github.com/codex-team/editor.js/issues/1157) avoiding [#1115](https://github.com/codex-team/editor.js/issues/1115)
+[script-loader](https://github.com/sosie-js/script-loader) | Add the HELPFUL Dynamic script Loader to simplify dev/prod switching and more! (v2.0.0 adds local/remote support)
 
 *mandatory
 

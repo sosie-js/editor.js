@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Configuration integration example by sos-productions.com using SoS正</title>
+  <title>Script Loader V2.0 integration example by sos-productions.com using SoS正</title>
   <meta name="author" content="">
   <link href="https://fonts.googleapis.com/css?family=PT+Mono" rel="stylesheet">
   <link href="assets/demo.css" rel="stylesheet">
@@ -40,7 +40,8 @@
       </div>
     </div>
   </div>
-
+ <!-- Script Loader should be the first , version 2.0 or more is required-->
+ <script src="plugins/script-loader/dist/bundle.js"></script><!-- src/index.js-->
   <!-- Load Tools -->
   <!--
    You can upload Tools to your project's directory and use as in example below.
@@ -50,48 +51,79 @@
    Read more in Tool's README file. For example:
    https://github.com/editor-js/header#installation
    -->
-  <script src="https://cdn.jsdelivr.net/npm/@editorjs/header@latest"></script><!-- Header -->
-  <script src="https://cdn.jsdelivr.net/npm/@editorjs/simple-image@latest"></script><!-- Image -->
-  <script src="https://cdn.jsdelivr.net/npm/@editorjs/delimiter@latest"></script><!-- Delimiter -->
-  <script src="https://cdn.jsdelivr.net/npm/@editorjs/list@latest"></script><!-- List -->
-  <script src="https://cdn.jsdelivr.net/npm/@editorjs/checklist@latest"></script><!-- Checklist -->
-  <script src="https://cdn.jsdelivr.net/npm/@editorjs/quote@latest"></script><!-- Quote -->
-  <script src="https://cdn.jsdelivr.net/npm/@editorjs/code@latest"></script><!-- Code -->
-  <script src="https://cdn.jsdelivr.net/npm/@editorjs/embed@latest"></script><!-- Embed -->
-  <script src="https://cdn.jsdelivr.net/npm/@editorjs/table@latest"></script><!-- Table -->
-  <script src="https://cdn.jsdelivr.net/npm/@editorjs/link@latest"></script><!-- Link -->
-  <script src="https://cdn.jsdelivr.net/npm/@editorjs/warning@latest"></script><!-- Warning -->
-
-  <script src="https://cdn.jsdelivr.net/npm/@editorjs/marker@latest"></script><!-- Marker -->
-  <script src="https://cdn.jsdelivr.net/npm/@editorjs/inline-code@latest"></script><!-- Inline Code -->
-
-  <!-- Load Editor.js's Core -->
-  <script src="https://cdn.jsdelivr.net/npm/@editorjs/editorjs@latest"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@editorjs/paragraph@latest"></script><!-- Paragraph -->
-
-  <!-- Load SoSIE + extension(s) -->
-  <script src="../dist/editor.js"></script>
-  <script src="../plugins/embed/dist/bundle.js"></script>
-  <script src="../plugins/tool-configurator/dist/bundle.js"></script>
-
+  <!-- Load SoSIE + embed extension(s) -->
   <!-- Initialization -->
   <script>
   
 
-     /**
+  /**
      * configure the Editor Tools before the Editor being initialized
      * @note Hack because for now we cannot have async constructors
-     * @param {EditorConfig|string|undefined} [configuration] - user configuration
+     * @param {function} configurationHolder a function that returns user configuration {EditorConfig|string|undefined} 
      * @param {boolean] custom , if not specified use demo by default.
      * @return promise<EditorJS>
      */
-    async function new_SoSIE(configuration,custom) {
+    async function new_SoSIE(configurationHolder,custom) {
     
        /**
         * Saving button
         */
         const saveButton = document.getElementById('saveButton');
+        
+        let nocache=false;
+        let mode='prod'; //dev will not work directly with sources, unless we browserify all.. 
+        let source='local';
+        let editorDir='..';
+        
+        let target=source+':'+editorDir; 
+
+        /**
+        * Load Tools
+        */
+        await loadTools([
+            {'@editorjs/header@latest': ['[example/tools/header](https://github.com/editor-js/header)']}, 
+            {'@editorjs/simple-image@latest':['[example/tools/simple-image](https://github.com/editor-js/simple-image)']},
+            {'@editorjs/delimiter@latest':['[example/tools/delimiter](https://github.com/editor-js/delimiter)']}, 
+            {'@editorjs/list@latest':['[example/tools/list](https://github.com/editor-js/list)']},
+            {'@editorjs/checklist@latest':['[example/tools/checklist](https://github.com/editor-js/checklist)']},
+            {'@editorjs/quote@latest':['[example/tools/quote](https://github.com/editor-js/quote)']}, 
+            {'@editorjs/code@latest':['[example/tools/code](https://github.com/editor-js/code)']},
+            {'@editorjs/image@latest':['[example/tools/image](https://github.com/editor-js/image)']}, 
+            {'@editorjs/embed@latest':['[example/tools/embed](https://github.com/editor-js/embed)']},
+            {'@editorjs/table@latest':['[example/tools/table](https://github.com/editor-js/table)']},
+            {'@editorjs/link@latest':['[example/tools/link](https://github.com/editor-js/link)']}, 
+            {'@editorjs/warning@latest':['[example/tools/warning](https://github.com/editor-js/warning)']}, 
+            {'@editorjs/marker@latest':['[example/tools/marker](https://github.com/editor-js/marker)']},
+            {'@editorjs/inline-code@latest':[ '[example/tools/inline-code](https://github.com/editor-js/inline-code)']}, 
+            {'@editorjs/paragraph@latest':['[example/tools/paragraph](https://github.com/editor-js/paragraph)']},
+            {'@editorjs/raw@latest':['[example/tools/raw](https://github.com/editor-js/raw)']} 
+        ],nocache,mode,target);
+        
+        /**
+        * Editor core
+        */
+        mode='prod'
+        source='local';//Works only with local as stored dists as we decided not to publish on npm
+        target=source+':'+editorDir;
+        await loadEditor([
+            {'sosie-js/editor.js@0.6.0':['[](https://github.com/sosie-js/editor.js)','dist/sosie.js']},
+            {'sos-productions/editor.js@next':['[src/editor.js](https://github.com/sos-productions/editor.js)','../../dist/editor.js'] }
+        ],nocache,mode,target)
+        
     
+        /**
+        * Plugins
+        */
+         await loadPlugins([
+            {'sosie-js/script-loader@1.3.0': '[example/plugins/script-loader](https://github.com/sosie-js/script-loader)'}, //virtual , already loaded we keep a version trace here
+            {'sosie-js/embed@2.0.0': ['[example/plugins/embed](https://github.com/sosie-js/embed)',['dist/bundle.js','dist/sample.js']]},
+            {'sosie-js/tool-configurator@1.0.0':['[example/plugins/tool-configurator](https://github.com/sosie-js/tool-configurator)','dist/bundle.js']}
+        ],nocache,mode,target);
+        
+        //throw(new Error("stop baby"));
+        //The configuration is desencapsulated with the good classes context 
+        let configuration=configurationHolder();
+        
         let ct=new ToolConfigurator(configuration);
         
         //This will avoid to hardcode sanitize rules in Paragraph tool.
@@ -116,10 +148,10 @@
     
     
    /**
-     * To initialize the Editor, create a new instance with configuration object
+     * To initialize the Editor, create a new instance with configuration object constructor
      * @see docs/installation.md for mode details
      */
-     var editor=new_SoSIE({
+     var editor=new_SoSIE(function(){ return {
     
       /**
        * Wrapper of Editor
@@ -335,7 +367,7 @@
       onChange: function() {
         console.log('something changed');
       }
-    }).then(editor => {
+    };}).then(editor => {
         //Don't forget to convert promise to object back because async return a promise
         window.editor=editor;
     });
