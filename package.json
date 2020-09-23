@@ -1,7 +1,6 @@
 {
-
   "name": "@sosie-js/editor.js",
-  "version": "0.6.0",
+  "version": "0.7.0",
   "keywords": [
     "sosie editor",
     "sosiejs"
@@ -9,8 +8,8 @@
   "description": "SoS Improved Editor based on editor.js",
   "main": "dist/sosie.js",
   "scripts": {
-    "build": "rimraf dist/* && cp src/sosie.css dist/sosie.css && cp editor.* dist/ && yarn build:prod",
-    "build:win": "rimraf dist && copy src/sosie.css dist/sosie.css && cp editor.* dist/ && yarn build:prod",
+    "build": "rimraf dist/* && cp src/sosie.css dist/sosie.css && cp src/editor.js/dist/* dist/ && cp -r src/font-awesome/css dist/ &&  cp -r src/font-awesome/fonts dist/ && yarn build:prod",
+    "build:win": "rimraf dist && copy src/sosie.css dist/sosie.css && cp src/editor.js/dist/* dist/ && cp -r src/font-awesome/css dist/ && cp -r src/font-awesome/fonts dist/ && yarn build:prod",
     "build:prod": "webpack --mode production",
     "build:dev": "webpack --mode development --watch",
     "test": "mocha -r @babel/register -r ignore-styles --recursive ./test",

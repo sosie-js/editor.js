@@ -62,3 +62,7 @@
 	path = example/plugins/tool-configurator
 	url = https://github.com/sosie-js/tool-configurator
 	branch = 1.0.0
+[submodule "src/font-awesome"]
+	path = src/font-awesome
+	url = https://github.com/FortAwesome/Font-Awesome
+	branch = fa-4
