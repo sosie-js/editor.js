@@ -1,4 +1,4 @@
-![](https://badgen.net/badge/SoS正/Beta/f2a) ![](https://badgen.net/badge/editor.js/v0.6.0/blue)  
+![](https://badgen.net/badge/SoS正/Beta/f2a) ![](https://badgen.net/badge/editor.js/v0.7.0/blue)  
 <a href="https://sosie.sos-productions.com/editor.js/"><p align="center"><img src="https://capella.pics/79ce946a-d636-41cd-aa96-d3bc5ecfde03.jpg"></p></a>
 
 
