@@ -40,7 +40,6 @@
       ul.topnav li a.injectbtn {
             padding-right:8;
             padding-left:8;
-            bgcolor:#1e1e1e;
             border-radius: 5px;
             border: 1px solid #e6e9eb;
       }
@@ -66,12 +65,21 @@
             overflow: hidden;
             background-color: #333;
             position: fixed; /* Set the navbar to fixed position */
-            top: 0; /* Position the navbar at the top of the page */
-            height: 3em;
             width: 100%; /* Full width */
             z-index: 20;
         }
-
+        
+        .top {
+            top: 0; /* Position the navbar at the top of the page */
+            height: 3em;
+        }
+        
+        .bottom {
+            bottom:0; /* Position the navbar at the bottom of the page */
+            height: 4em;
+        }
+        
+        
         /* Links inside the navbar */
         .navbar a {
             float: left;

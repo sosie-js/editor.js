@@ -62,7 +62,7 @@ export default class SoSIE {
                });
             }
             
-            this.showMenuBar('sosie');
+            //this.showMenuBar('sosie');
             return this.init(editor);
 
     }
@@ -96,12 +96,16 @@ export default class SoSIE {
     }
     
     /**
-     * Shows the menu bar ay attaching it to div whose id is given by handler
-     * @param {string] holder - the id of the div to , for us it is 'sosie'
+     * Shows the menu bar ay attaching it to div whose id is given by holder
+     * @param {string} holder - the id of the div to , for us it is 'sosie'
+     * @param {string} where - the positon top(default) or bottom
+     * @return {HTMLDivElement} the div of the menubar
      **/
-    showMenuBar(holder) {
+    showMenuBar(holder,where) {
         let h=document.getElementById(holder);
+        h.className='navbar '+where||'top';
         h.appendChild(this.menu);
+        return h;
     }
       
     /**
