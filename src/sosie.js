@@ -5,13 +5,14 @@
     * @Note Add plugins to expand facilities of tool, a plugin is a sort of bridge between editor.js core and tools 
     * @sample https://sosie.sos-productions.com/
     * @author sos-productions.com
-    * @version 4.0
+    * @version 4.1
     * @history
     *    1.0 (A long time ago) - Initial version from 
     *    2.0 (06.09.2020) - Register added and data example deported
     *    2.1 (09.09.2020) - Interactive support for plugin Emped with comments
     *    3.0 (09.09.2020) - Bundle attempt export default 
     *    4.0 (10.09.2020) - History Dates were wrong 
+    *    4.1 (23.09.2020) - where added to showMenuBar
     **/
   
 /**
@@ -114,7 +115,7 @@ export default class SoSIE {
     **/ 
     static register(plugin) {
         if(typeof plugins == 'undefined') window.SoSIE__plugins=new Array();
-        Array.push(window.SoSIE__plugins,plugin);
+        window.SoSIE__plugins.push(plugin);
     }
         
     /**
@@ -125,21 +126,42 @@ export default class SoSIE {
      * @param {string} url - the url to redirect to
      * @param {string} mode - theinject mode 'inline' or 'block' 
      * @param {boolean|obj} custom - if bolean true if we use userservices, if object then it hold the userservices config 
-     * @param {string} title - the title when mouse is over the button
+     * @param {string|obj} attr - if string, the title when mouse is over the button or attributes object including title
      * @param {string} text - the text for the button
      * @param {string} style - the style for the item, (used to tweak colors)
      **/    
-   addMenuItemBtn({type, interactive, url, mode, custom, title, text, style}) {
+   addMenuItemBtn({type, interactive, url, mode, custom, attr, text, style}) {
+    
        const item=this._make('li',null,{});
+       let i, btn, icon, title;
        let anchor,atr={
              href:'#',
-             title:title
+        }
+        
+        if(typeof attr == 'string') {
+            title=attr;
+            atr.title=title
+        }else {
+            atr=Object.assign(atr,attr);
         }
         
         if(type == 'injectbtn') {
             anchor=this._make('a',type,atr);
             anchor.appendChild(document.createTextNode(text));
             this._inject(anchor, interactive, url, title, mode, custom);
+        }else if((btn = /^(fa-\w+)/.exec(type)) !== null) {
+         /*   <a id="viewButton" title="View">
+        <span class="fa-stack fa-lg"  style="font-size:12px">
+  				<i class="fa fa-television fa-stack-2x"></i>
+         </span>*/
+             anchor=this._make('a',null,atr);
+             icon=btn[1];
+             btn=this._make('span',['fa-stack','fa-lg'],{
+               style:'font-size:12px'  
+             });
+             i=this._make('i',['fa',icon,'fa-stack-2x'],null);
+             btn.appendChild(i);
+             anchor.appendChild(btn);
         }else { //logo
              if(style) atr.style=style;
              anchor=this._make('a',null,atr);
@@ -151,7 +173,7 @@ export default class SoSIE {
                 return false;
             }, false);})(url,text);
              
-            const i=this._make('img',null,{
+            i=this._make('img',null,{
                 src:mode, 
                 alt:custom, 
                 title:title,
