@@ -69,4 +69,4 @@
 [submodule "src/js-notifier"]
 	path = src/js-notifier
 	url = https://github.com/codex-team/js-notifier
-	branch = master
+	branch = 1.1.3
