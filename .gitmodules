@@ -78,3 +78,7 @@
 	path = src/file-saver
 	url = https://github.com/eligrey/FileSaver.js
 	branch = master
+[submodule "src/editorjs-undo"]
+	path = src/editorjs-undo
+	url = https://github.com/kommitters/editorjs-undo
+	branch = master
