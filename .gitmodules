@@ -1,7 +1,7 @@
 [submodule "example/plugins/script-loader"]
 	path = example/plugins/script-loader
 	url = https://github.com/sosie-js/script-loader
-	branch = 2.2.0
+	branch = 3.0.0
 [submodule "example/tools/header"]
 	path = example/tools/header
 	url = https://github.com/editor-js/header
@@ -70,14 +70,6 @@
 	path = src/js-notifier
 	url = https://github.com/codex-team/js-notifier
 	branch = 1.2.0
-[submodule "src/downloadjs"]
-	path = src/downloadjs
-	url = https://github.com/rndme/download
-	branch = master
-[submodule "src/file-saver"]
-	path = src/file-saver
-	url = https://github.com/eligrey/FileSaver.js
-	branch = master
 [submodule "src/editorjs-undo"]
 	path = src/editorjs-undo
 	url = https://github.com/kommitters/editorjs-undo
