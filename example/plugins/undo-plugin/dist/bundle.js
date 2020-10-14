@@ -1,1 +1,0 @@
-Undo.init=n=>{const i=new Undo({editor:n});n.save(!0).then(n=>{i.initialize(n)}).catch(n=>{console.log("Saving failed: ",n)}),n.undo=i},SoSIE.register("Undo");

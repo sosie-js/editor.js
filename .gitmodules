@@ -53,7 +53,7 @@
 [submodule "example/plugins/embed"]
 	path = example/plugins/embed
 	url = https://github.com/sosie-js/embed
-	branch = 2.0.0
+	branch = 4.0.0
 [submodule "src/editor.js"]
 	path = src/editor.js
 	url = https://github.com/sos-productions/editor.js
@@ -74,3 +74,19 @@
 	path = src/editorjs-undo
 	url = https://github.com/kommitters/editorjs-undo
 	branch = master
+[submodule "example/plugins/block-plugin"]
+	path = example/plugins/block-plugin
+	url = https://github.com/sosie-js/block-plugin
+	branch = 2.0.0
+[submodule "example/plugins/file-plugin"]
+	path = example/plugins/file-plugin
+	url = https://github.com/sosie-js/file-plugin
+	branch = 1.1.0
+[submodule "example/plugins/undo-plugin"]
+	path = example/plugins/undo-plugin
+	url = https://github.com/sosie-js/undo-plugin
+	branch = 1.0.0
+[submodule "example/plugins/view-plugin"]
+	path = example/plugins/view-plugin
+	url = https://github.com/sosie-js/view-plugin
+	branch = 1.0.0
