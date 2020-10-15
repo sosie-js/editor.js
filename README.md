@@ -30,7 +30,7 @@ Plugins for now available:
 [file-plugin@1.1.0](https://github.com/sosie-js/file-plugin) | Save, Open (as .json) and clear feature
 *[block-plugin@2.0.0'](https://github.com/sosie-js/block-plugin)' | Block position and caret selection
 *[undo-plugin@1.0.0](https://github.com/sosie-js/undo-plugin)' | Undo/Redo plugin with position tracking, (requires block-plugin)
-[sosie-js/view-plugin@1.0.0](https://github.com/sosie-js/view-plugin)' |  Export to html (minimalistic)
+[view-plugin@1.0.0](https://github.com/sosie-js/view-plugin)' |  Export to html (minimalistic)
 
 *mandatory
 
