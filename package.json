@@ -23,7 +23,7 @@
     "lint:fix": "eslint src/ --ext .js --fix",
     "lint:init": "eslint src/ --ext .js --init",
     "pull_tools": "git submodule update --init --recursive",
-    "checkout_tools": "git submodule foreach git pull"
+    "checkout_tools": "git submodule foreach git pull origin master"
   },
   "author": "sos-productions",
   "license": "Apache-2.0",

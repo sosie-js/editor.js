@@ -90,3 +90,15 @@
 	path = example/plugins/view-plugin
 	url = https://github.com/sosie-js/view-plugin
 	branch = 1.0.0
+[submodule "src/undo"]
+	path = src/undo
+	url = https://github.com/kommitters/editorjs-undo
+	branch = master
+[submodule "src/file-saver"]
+	path = src/file-saver
+	url = https://github.com/eligrey/FileSaver.js
+	branch = master
+[submodule "src/downloadjs"]
+	path = src/downloadjs
+	url = https://github.com/rndme/download
+	branch = master
