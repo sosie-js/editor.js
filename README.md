@@ -1,5 +1,5 @@
-![](https://badgen.net/badge/SoS正/Beta/f2a) ![](https://badgen.net/badge/editor.js/v0.7.0/blue)  
-<a href="https://sosie.sos-productions.com/editor.js/"><p align="center"><img src="https://capella.pics/79ce946a-d636-41cd-aa96-d3bc5ecfde03.jpg"></p></a>
+![](https://badgen.net/badge/SoS正/0.7.0/f2a) ![](https://badgen.net/badge/editor.js/v2.1.8/blue)  
+<a href="https://sosie.sos-productions.com/editor.js/"><p align="center"><img src="http://sosie.sos-productions.com/assets/SoSIEDemoInjector.gif"></p></a>
 
 
 ## Demo
@@ -24,9 +24,13 @@ Plugins for now available:
 
  Plugin | Description
 -- | -- 
-*[embed](https://github.com/sosie-js/embed) | Add the WANTED ([#36](https://github.com/editor-js/embed/issues/36)+[#16](https://github.com/editor-js/embed/issues/16)+[#11](https://github.com/editor-js/embed/issues/11)) inline injector to [Embed tool](https://github.com/editor-js/embed)
-[tool-configurator](https://github.com/sosie-js/tool-configurator) | Add the NEEDED rule configuration started from [#1280](https://github.com/codex-team/editor.js/issues/1280)+[#1157](https://github.com/codex-team/editor.js/issues/1157) avoiding [#1115](https://github.com/codex-team/editor.js/issues/1115)
-[script-loader](https://github.com/sosie-js/script-loader) | Add the HELPFUL Dynamic script Loader to simplify dev/prod switching and more! (v2.0.0 adds local/remote support)
+*[embed@4.0.0](https://github.com/sosie-js/embed) | Add the WANTED ([#36](https://github.com/editor-js/embed/issues/36)+[#16](https://github.com/editor-js/embed/issues/16)+[#11](https://github.com/editor-js/embed/issues/11)) inline *INTERACTIVE* injector to [Embed tool](https://github.com/editor-js/embed)
+*[tool-configurator](https://github.com/sosie-js/tool-configurator) | Add the NEEDED rule configuration started from [#1280](https://github.com/codex-team/editor.js/issues/1280)+[#1157](https://github.com/codex-team/editor.js/issues/1157) avoiding [#1115](https://github.com/codex-team/editor.js/issues/1115)
+*[script-loader@3.0.0](https://github.com/sosie-js/script-loader) | Add the HELPFUL Dynamic script Loader to simplify dev/prod switching and more! (v2.1.0 adds giturl tree support required for font-awesome)
+[file-plugin@1.1.0](https://github.com/sosie-js/file-plugin) | Save, Open (as .json) and clear feature
+*[block-plugin@2.0.0': ['[example/plugins/block-plugin](https://github.com/sosie-js/block-plugin)' | Block position and caret selection
+*[undo-plugin@1.0.0](https://github.com/sosie-js/undo-plugin)' | Undo/Redo plugin with position tracking, (requires block-plugin)
+[sosie-js/view-plugin@1.0.0](https://github.com/sosie-js/view-plugin)' |  Export to html (minimalistic)
 
 *mandatory
 
@@ -37,9 +41,6 @@ yarn install
 yarn pull_tools
 yarn checkout_tools
 ```
-
-To activate for the plugin embed see [homepage of the plugin](https://github.com/sosie-js/embed);
-
 
 ## Credits and references
 
