@@ -1,9 +1,8 @@
 ![](https://badgen.net/badge/SoS正/0.7.0/f2a) ![](https://badgen.net/badge/editor.js/v2.1.8/blue)  
-<a href="https://sosie.sos-productions.com/editor.js/"><p align="center"><img src="http://sosie.sos-productions.com/assets/SoSIEDemoInjector.gif"></p></a>
-
-
 
 ## Demo
+
+<a href="https://sosie.sos-productions.com/editor.js/" target="_blank"><p align="center"><img src="http://sosie.sos-productions.com/assets/SoSIEDemoInjector.gif"><i>cliq</p></a>
 
 [SoS正 (aka SoSIE for Westeners) shows how to inject embed and configure tools](http://sosie.sos-productions.com/);
 
