@@ -1,5 +1,5 @@
 ![](https://badgen.net/badge/SoS正/0.7.0/f2a) ![](https://badgen.net/badge/editor.js/v2.1.8/blue)  
-<a href="https://sosie.sos-productions.com/editor.js/"><p align="center"><iframe src="http://sosie.sos-productions.com/editor.js/"></p></a>
+<a href="https://sosie.sos-productions.com/editor.js/"><p align="center"><img src="http://sosie.sos-productions.com/assets/SoSIEDemoInjector.gif"></p></a>
 
 
 ## Demo
