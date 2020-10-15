@@ -10,17 +10,26 @@
 
 There are mainly the same steps as  [Editor.js](http://editorjs.io/)
 
-### Step 1. Load Editor's core
+### Step 1. Get SoSIE
 
-Get [Editor.js](https://github.com/codex-team/editor.js/) itself. 
+```shell
+git clone https://github.com/sosie-js/editor.js.git
+``` 
 
-### Step 2. Get inspired by the code of examples
+### Step 2; Install plugins and tools
 
-We took [example.html](https://raw.githubusercontent.com/codex-team/editor.js/next/example/example.html) located in example/  as basis.
+Plugins are stored into plugins/ and can be installed like for tools using git sub modules
 
-### Step 3. Install some plugin
+```shell
+yarn install
+```
 
-Plugins for now available:
+### Step 3. Get inspired by the code of examples
+
+Browse index.html 
+
+
+## Plugins for now available:
 
  Plugin | Description
 -- | -- 
@@ -34,11 +43,11 @@ Plugins for now available:
 
 *mandatory
 
-Plugins are stored into plugins/ and can be installed like for tools using git sub modules
+## If you need to rebuild 
 
 ```shell
-yarn install
-```
+yarn build
+``` 
 
 ## Credits and references
 
