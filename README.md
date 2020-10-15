@@ -2,7 +2,7 @@
 
 ## Demo
 
-<a href="https://sosie.sos-productions.com/editor.js/" target="_blank"><p align="center"><img src="http://sosie.sos-productions.com/assets/SoSIEDemoInjector.gif"><i>cliq</p></a>
+<a href="https://sosie.sos-productions.com/editor.js/" target="_blank"><p align="center"><img src="http://sosie.sos-productions.com/assets/SoSIEDemoInjector.gif"><br><i>click on the image to have the hq version</i></p></a>
 
 [SoS正 (aka SoSIE for Westeners) shows how to inject embed and configure tools](http://sosie.sos-productions.com/);
 
