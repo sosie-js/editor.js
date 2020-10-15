@@ -104,3 +104,12 @@
         /*optional*/ cursor: not-allowed;
         /*optional*/ pointer-events: none;
         }
+
+        /* Exposes Block limits */     
+        div .ce-block__content {
+            border: 1px dashed lightblue;
+        }
+        
+        div .ce-block__content:hover {
+            border: 2px dashed blue;
+        }

@@ -91,7 +91,25 @@
 
         /* Change background on mouse-over */
         .navbar a:hover {
-        background: #ddd;
-        color: black;
+            background: #ddd;
+            color: black;
         }
-      
+
+        /*For disabled stat of font awesome*/
+        .fa.disabled,
+        .fa[disabled],
+        .disabled > .fa,
+        [disabled] > .fa {
+        opacity: 0.5 !important;
+        /*optional*/ cursor: not-allowed;
+        /*optional*/ pointer-events: none;
+        }
+
+        /* Exposes Block limits */     
+        div .ce-block__content {
+            border: 1px dashed lightblue;
+        }
+        
+        div .ce-block__content:hover {
+            border: 2px dashed blue;
+        }

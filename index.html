@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Example of SoS正's crazy plugins by sos-productions.com</title>
+  <meta name="author" content="">
+  <link href="https://fonts.googleapis.com/css?family=PT+Mono" rel="stylesheet">
+  <link href="example/assets/demo.css" rel="stylesheet">
+  <script src="example/assets/json-preview.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <link href="dist/sosie.css" rel="stylesheet">
+</head>
+<body>
+  <div class="ce-example">
+    <div class="ce-example__header">
+      <a class="ce-example__header-logo" href="https://codex.so/editor">Editor.js 🤩🧦🤨</a>
+
+      <div class="ce-example__header-menu">
+        <a href="https://github.com/editor-js" target="_blank">Plugins</a>
+        <a href="https://editorjs.io/usage" target="_blank">Usage</a>
+        <a href="https://editorjs.io/configuration" target="_blank">Configuration</a>
+        <a href="https://editorjs.io/creating-a-block-tool" target="_blank">API</a>
+      </div>
+    </div>
+
+    <div class="navbar top" id="sosie"></div>
+
+    <div class="ce-example__content _ce-example__content--small">
+      <div id="editorjs"></div>
+
+      <div class="ce-example__button" id="saveButton">
+        editor.save()
+      </div>
+    </div>
+    <div class="ce-example__output">
+      <pre class="ce-example__output-content" id="output"></pre>
+
+      <div class="ce-example__output-footer">
+        <a href="https://codex.so" style="font-weight: bold;">Made by CodeX and SoSIE</a>
+      </div>
+    </div>
+  </div>
+ <!-- Script Loader should be the first , version 3.0 or more is required-->
+ <script src="example/plugins/script-loader/dist/bundle.js"></script><!-- src/index.js-->
+  <!-- Load Tools -->
+  <!--
+   You can upload Tools to your project's directory and use as in example below.
+
+   Also you can load each Tool from CDN or use NPM/Yarn packages.
+
+   Read more in Tool's README file. For example:
+   https://github.com/editor-js/header#installation
+   -->
+  <!-- Load SoSIE + embed extension(s) -->
+  <!-- Initialization -->
+  <script>
+  
+  /**
+     * configure the Editor Tools before the Editor being initialized
+     * @note Hack because for now we cannot have async constructors
+     * @param {function} configurationHolder a function that returns user configuration {EditorConfig|string|undefined} 
+     * @param {boolean] custom , if not specified use demo by default.
+     * @return promise<EditorJS>
+     */
+    async function new_SoSIE(configurationHolder,custom) {
+    
+        let nocache=false;
+        let mode='prod'; //dev will require browserify
+        let source='local';
+        let editorDir='.';
+        
+        let target=source+':'+editorDir; 
+
+        /**
+        * Load Tools
+        */
+        await loadTools([
+            {'@editorjs/header@latest': ['[example/tools/header](https://github.com/editor-js/header)']}, 
+            {'@editorjs/simple-image@latest':['[example/tools/simple-image](https://github.com/editor-js/simple-image)']},
+            {'@editorjs/delimiter@latest':['[example/tools/delimiter](https://github.com/editor-js/delimiter)']}, 
+            {'@editorjs/list@latest':['[example/tools/list](https://github.com/editor-js/list)']},
+            {'@editorjs/checklist@latest':['[example/tools/checklist](https://github.com/editor-js/checklist)']},
+            {'@editorjs/quote@latest':['[example/tools/quote](https://github.com/editor-js/quote)']}, 
+            {'@editorjs/code@latest':['[example/tools/code](https://github.com/editor-js/code)']},
+            {'@editorjs/image@latest':['[example/tools/image](https://github.com/editor-js/image)']}, 
+            {'@editorjs/embed@latest':['[example/tools/embed](https://github.com/editor-js/embed)']},
+            {'@editorjs/table@latest':['[example/tools/table](https://github.com/editor-js/table)']},
+            {'@editorjs/link@latest':['[example/tools/link](https://github.com/editor-js/link)']}, 
+            {'@editorjs/warning@latest':['[example/tools/warning](https://github.com/editor-js/warning)']}, 
+            {'@editorjs/marker@latest':['[example/tools/marker](https://github.com/editor-js/marker)']},
+            {'@editorjs/inline-code@latest':[ '[example/tools/inline-code](https://github.com/editor-js/inline-code)']}, 
+            {'@editorjs/paragraph@latest':['[example/tools/paragraph](https://github.com/editor-js/paragraph)']},
+            {'@editorjs/raw@latest':['[example/tools/raw](https://github.com/editor-js/raw)']},
+        ],nocache,mode,target);
+        
+        /**
+        * Editor core
+        */
+        mode='prod'
+        source='local';//Works only with local stored dists as we decided not to publish on npm
+        target=source+':'+editorDir;
+        await loadEditor([
+            {'#sosie-js/editor.js@0.7.0':['[.](https://github.com/sosie-js/editor.js)','dist/sosie.js']},
+            {'sos-productions/editor.js@2.1.8':['[src/editor.js](https://github.com/sos-productions/editor.js)','../../dist/editor.js']},
+            {'font-awesome@latest':['[src/font-awesome](https://github.com/FortAwesome/Font-Awesome/tree/fa-4)','../../dist/css/font-awesome.min.css']},
+            {'sosie-js/js-notifier@1.3.0':['[src/js-notifier](https://github.com/sosie-js/js-notifier)','../../dist/notifier.js']},
+            {'editorjs-undo@latest': ['[src/editorjs-undo](https://github.com/kommitters/editorjs-undo)','../../dist/editorjs-undo.js']}
+        ],nocache,mode,target)
+        
+  
+        /**
+        * Plugins
+        */
+         await loadPlugins([
+            {'sosie-js/script-loader@3.0.0': '[example/plugins/script-loader](https://github.com/sosie-js/script-loader)'}, //virtual , already loaded we keep a version trace here
+            {'sosie-js/file-plugin@1.1.0': ['[example/plugins/file-plugin](https://github.com/sosie-js/file-plugin)',['dist/bundle.js','dist/sample.js']]},
+            {'sosie-js/undo-plugin@1.0.0': ['[example/plugins/undo-plugin](https://github.com/sosie-js/undo-plugin)',['dist/bundle.js','dist/sample.js']]},
+            {'sosie-js/view-plugin@1.0.0': ['[example/plugins/view-plugin](https://github.com/sosie-js/view-plugin)',['dist/bundle.js','dist/sample.js']]},
+            {'sosie-js/block-plugin@2.0.0': ['[example/plugins/block-plugin](https://github.com/sosie-js/block-plugin)',['dist/bundle.js','dist/sample.js']]},
+            {'sosie-js/embed@4.0.0': ['[example/plugins/embed](https://github.com/sosie-js/embed)',['dist/bundle.js','dist/sample.js']]},
+            {'sosie-js/tool-configurator@1.0.0':['[example/plugins/tool-configurator](https://github.com/sosie-js/tool-configurator)','dist/bundle.js']}
+        ],nocache,mode,target);
+        
+        //throw(new Error("stop baby"));
+        //The configuration is desencapsulated with the good classes context 
+        let configuration=configurationHolder();
+        
+        let ct=new ToolConfigurator(configuration);
+        
+        //This will avoid to hardcode sanitize rules in Paragraph tool.
+        //and use our rules defined in paragraph.text.allowedTags
+        //to avoid washing style tags deliberately by default (p tag is mandatory!)
+        await ct.awaitFinished('Paragraph',500);
+        
+        //checkConfigFinished('Paragraph');
+        var editor=new SoSIE(configuration,custom);
+    
+        /**
+        * Codex's Saving button
+        */
+        editor.sosie.set('saveButton');
+        
+        /**
+        * Saving example
+        */
+        editor.sosie.get('saveButton').addEventListener('click', function () {
+            editor.save().then((savedData) => {
+                cPreview.show(savedData, document.getElementById("output"));
+            });
+        });
+        
+        editor.sosie.loadAllPluginsSamples();
+         
+        return editor;
+    }
+    
+    
+   /**
+     * To initialize the Editor, create a new instance with configuration object constructor
+     * @see docs/installation.md for mode details
+     */
+     var editor=new_SoSIE(function(){ return {
+    
+      /**
+       * Wrapper of Editor
+       */
+      holder: 'editorjs',
+
+      /**
+       * Tools list
+       */
+      tools: {
+        /**
+         * Each Tool is a Plugin. Pass them via 'class' option with necessary settings {@link docs/tools.md}
+         */
+        header: {
+          class: Header,
+          inlineToolbar: ['link'],
+          config: {
+            placeholder: 'Header'
+          },
+          shortcut: 'CMD+SHIFT+H'
+        },
+
+        /**
+        * NEW!: This tool has a common configuration for sanitizing and pasteConfig
+        */
+        paragraph: {
+          class: Paragraph,
+           text: {
+                type: "string",
+                allowedTags: "p,i,b,u,a[href],strong,em,br,dd,dt,dl,embed,div,img"
+            }
+        },
+        
+        /**
+         * Or pass class directly without any configuration
+         */
+        image: SimpleImage,
+
+        list: {
+          class: List,
+          inlineToolbar: true,
+          shortcut: 'CMD+SHIFT+L'
+        },
+
+        checklist: {
+          class: Checklist,
+          inlineToolbar: true,
+        },
+
+        quote: {
+          class: Quote,
+          inlineToolbar: true,
+          config: {
+            quotePlaceholder: 'Enter a quote',
+            captionPlaceholder: 'Quote\'s author',
+          },
+          shortcut: 'CMD+SHIFT+O'
+        },
+
+        warning: Warning,
+
+        marker: {
+          class:  Marker,
+          shortcut: 'CMD+SHIFT+M'
+        },
+
+        code: {
+          class:  CodeTool,
+          shortcut: 'CMD+SHIFT+C'
+        },
+
+        delimiter: Delimiter,
+
+        inlineCode: {
+          class: InlineCode,
+          shortcut: 'CMD+SHIFT+C'
+        },
+
+        linkTool: LinkTool,
+
+        embed: Embed,
+
+        table: {
+          class: Table,
+          inlineToolbar: true,
+          shortcut: 'CMD+ALT+T'
+        },
+
+      },
+
+      /**
+       * This Tool will be used as default
+       */
+      defaultBlock: 'paragraph',
+
+      /**
+       * Initial Editor data
+       */
+      data: {
+        blocks: [
+          {
+            type: "header",
+            data: {
+              text: "Editor.js with SoS正 menubar on the top",
+              level: 2
+            }
+          },
+          {
+            type : 'paragraph',
+            data : {
+              text : 'Hey. Meet the new Editor. On this page you can see it in action — try to edit this text. Source code of the page contains the example of connection and configuration.'
+            }
+          },
+          {
+            type: "header",
+            data: {
+              text: "Key features",
+              level: 3
+            }
+          },
+          {
+            type : 'list',
+            data : {
+              items : [
+                'It is a block-styled editor',
+                'It returns clean data output in JSON',
+                'Designed to be extendable and pluggable with a simple API',
+              ],
+              style: 'unordered'
+            }
+          },
+          {
+            type: "header",
+            data: {
+              text: "What does it mean «block-styled editor»",
+              level: 3
+            }
+          },
+          {
+            type : 'paragraph',
+            data : {
+              text : 'Workspace in classic editors is made of a single contenteditable element, used to create different HTML markups. Editor.js <mark class=\"cdx-marker\">workspace consists of separate Blocks: paragraphs, headings, images, lists, quotes, etc</mark>. Each of them is an independent contenteditable element (or more complex structure) provided by Plugin and united by Editor\'s Core.'
+            }
+          },
+          {
+            type : 'paragraph',
+            data : {
+              text : `There are dozens of <a href="https://github.com/editor-js">ready-to-use Blocks</a> and the <a href="https://editorjs.io/creating-a-block-tool">simple API</a> for creation any Block you need. For example, you can implement Blocks for Tweets, Instagram posts, surveys and polls, CTA-buttons and even games.`
+            }
+          },
+          {
+            type: "header",
+            data: {
+              text: "What does it mean clean data output",
+              level: 3
+            }
+          },
+          {
+            type : 'paragraph',
+            data : {
+              text : 'Classic WYSIWYG-editors produce raw HTML-markup with both content data and content appearance. On the contrary, Editor.js outputs JSON object with data of each Block. You can see an example below'
+            }
+          },
+          {
+            type : 'paragraph',
+            data : {
+              text : `Given data can be used as you want: render with HTML for <code class="inline-code">Web clients</code>, render natively for <code class="inline-code">mobile apps</code>, create markup for <code class="inline-code">Facebook Instant Articles</code> or <code class="inline-code">Google AMP</code>, generate an <code class="inline-code">audio version</code> and so on.`
+            }
+          },
+          {
+            type : 'paragraph',
+            data : {
+              text : 'Clean data is useful to sanitize, validate and process on the backend.'
+            }
+          },
+          {
+            type : 'delimiter',
+            data : {}
+          },
+          {
+            type : 'paragraph',
+            data : {
+              text : 'We have been working on this project more than three years. Several large media projects help us to test and debug the Editor, to make its core more stable. At the same time we significantly improved the API. Now, it can be used to create any plugin for any task. Hope you enjoy. 😏'
+            }
+          },
+          {
+            type: 'image',
+            data: {
+              url: 'assets/codex2x.png',
+              caption: '',
+              stretched: false,
+              withBorder: true,
+              withBackground: false,
+            }
+          },
+           {
+            type : 'paragraph',
+            data : {
+              text : 'Now after all these efforts, fun time and relaxation with SoSIE!. Click on the buttons on SoSIE menubar at the top after clicking somwhere to let the caret where you want to inject the surprises the malicious bunny has prepared for you. Enjoy watching great movies and documentaries nominated!'
+            }
+          },
+            {
+            type : 'paragraph',
+            data : {
+              text : 'Now copy an html styled paragraph and its container p and paste it. they should no be washed by the crazy duo sanitize and configPaste.'
+            }
+          }
+        ]
+      },
+      onReady: function(){
+        saveButton.click();
+      },
+      onChange: function() {
+        console.log('something changed');
+        
+        //Refresh state of Undo/redo buttons
+        refreshUndoRedoPanel();
+
+        //Refresh the current Block position and total of blocks 
+        refreshBlocksStatusPanel();
+      }
+    };}).then(editor => {
+    
+        //Don't forget to convert promise to object back because async return a promise
+        window.editor=editor; //FIXME required by plugin Embed
+        
+    });
+   
+  </script>
+</body>
+</html>
