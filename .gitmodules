@@ -88,8 +88,8 @@
 	branch = 1.3.0
 [submodule "src/editorjs-undo"]
 	path = src/editorjs-undo
-	url = https://github.com/kommitters/editorjs-undo
-	branch = master
+	url = https://github.com/sosie-js/editorjs-undo
+	branch = bigBrother
 [submodule "example/plugins/block-plugin"]
 	path = example/plugins/block-plugin
 	url = https://github.com/sosie-js/block-plugin
@@ -106,10 +106,6 @@
 	path = example/plugins/view-plugin
 	url = https://github.com/sosie-js/view-plugin
 	branch = 1.0.0
-[submodule "src/undo"]
-	path = src/undo
-	url = https://github.com/sosie-js/editorjs-undo
-	branch = master
 [submodule "src/file-saver"]
 	path = src/file-saver
 	url = https://github.com/eligrey/FileSaver.js
