@@ -72,7 +72,7 @@
 	branch = 4.0.0
 [submodule "src/editor.js"]
 	path = src/editor.js
-	url = https://github.com/sos-productions/editor.js
+	url = https://github.com/codex-team/editor.js
 	branch = next
 [submodule "example/plugins/tool-configurator"]
 	path = example/plugins/tool-configurator
@@ -89,7 +89,7 @@
 [submodule "src/editorjs-undo"]
 	path = src/editorjs-undo
 	url = https://github.com/sosie-js/editorjs-undo
-	branch = bigBrother
+	branch = bigBrotherIndexFix
 [submodule "example/plugins/block-plugin"]
 	path = example/plugins/block-plugin
 	url = https://github.com/sosie-js/block-plugin
