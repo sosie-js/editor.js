@@ -101,7 +101,7 @@
 [submodule "example/plugins/view-plugin"]
 	path = example/plugins/view-plugin
 	url = https://github.com/sosie-js/view-plugin
-	branch = 1.0.0
+	branch = 3.0.0
 [submodule "src/file-saver"]
 	path = src/file-saver
 	url = https://github.com/eligrey/FileSaver.js
