@@ -89,7 +89,7 @@
 [submodule "example/plugins/block-plugin"]
 	path = example/plugins/block-plugin
 	url = https://github.com/sosie-js/block-plugin
-	branch = 2.0.0
+	branch = 3.0.0
 [submodule "example/plugins/file-plugin"]
 	path = example/plugins/file-plugin
 	url = https://github.com/sosie-js/file-plugin
