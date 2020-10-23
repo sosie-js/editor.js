@@ -97,7 +97,7 @@
 [submodule "example/plugins/undo-plugin"]
 	path = example/plugins/undo-plugin
 	url = https://github.com/sosie-js/undo-plugin
-	branch = bigBrotherIndexFix
+	branch = 1.1.0
 [submodule "example/plugins/view-plugin"]
 	path = example/plugins/view-plugin
 	url = https://github.com/sosie-js/view-plugin
