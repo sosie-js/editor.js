@@ -1,7 +1,7 @@
 [submodule "example/plugins/script-loader"]
 	path = example/plugins/script-loader
 	url = https://github.com/sosie-js/script-loader
-	branch = 3.0.0
+	branch = 3.0.1
 [submodule "example/tools/header"]
 	path = example/tools/header
 	url = https://github.com/editor-js/header
