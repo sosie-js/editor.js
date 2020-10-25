@@ -110,3 +110,7 @@
 	path = src/editor.js
 	url = https://github.com/codex-team/editor.js
 	branch = next
+[submodule "example/tools/list"]
+	path = example/tools/list
+	url = https://github.com/sosie-js/list
+	branch = 1.6.1
