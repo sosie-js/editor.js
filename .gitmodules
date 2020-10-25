@@ -14,10 +14,6 @@
 	path = example/tools/delimiter
 	url = https://github.com/editor-js/delimiter
 	branch = master
-[submodule "example/tools/list"]
-	path = example/tools/list
-	url = https://github.com/editor-js/list
-	branch = master
 [submodule "example/tools/checklist"]
 	path = example/tools/checklist
 	url = https://github.com/editor-js/checklist
