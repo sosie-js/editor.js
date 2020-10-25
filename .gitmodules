@@ -9,7 +9,7 @@
 [submodule "example/tools/simple-image"]
 	path = example/tools/simple-image
 	url = https://github.com/sosie-js/simple-image
-	branch = sosie-js-data-url-retrieval-img-cache-bug
+	branch = 1.4.1
 [submodule "example/tools/delimiter"]
 	path = example/tools/delimiter
 	url = https://github.com/editor-js/delimiter
