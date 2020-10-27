@@ -26,10 +26,6 @@
 	path = example/tools/code
 	url = https://github.com/editor-js/code
 	branch = master
-[submodule "example/tools/image"]
-	path = example/tools/image
-	url = https://github.com/editor-js/image
-	branch = master
 [submodule "example/tools/embed"]
 	path = example/tools/embed
 	url = https://github.com/editor-js/embed
