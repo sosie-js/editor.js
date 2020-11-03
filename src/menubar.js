@@ -130,7 +130,10 @@ export default class Menubar {
             anchor=this._make('a',type,atr);
             anchor.appendChild(document.createTextNode(text));
             this._inject(anchor, interactive, url, title, mode, custom);
-        }else if((btn = /^(fa-[\w\-]+)/.exec(type)) !== null) { //Create a button using Font-awesome matching the class 
+        } else if (type == 'textbtn') {
+           anchor=this._make('a',type,atr);
+           anchor.appendChild(document.createTextNode(text));
+        } else if((btn = /^(fa-[\w\-]+)/.exec(type)) !== null) { //Create a button using Font-awesome matching the class 
              if(mode) atr.id=mode;
              
              anchor=this._make('a',null,atr);

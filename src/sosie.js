@@ -5,15 +5,16 @@
     * @Note Add plugins to expand facilities of tool, a plugin is a sort of bridge between editor.js core and tools 
     * @sample https://sosie.sos-productions.com/
     * @author sos-productions.com
-    * @version 0.7.0
+    * @version 0.8.0
     * @history
-    *    0.1.0 (A long time ago) - Initial version from 
+    *    0.1.0 (A long time ago) - Initial version 
     *    0.2.0 (06.09.2020) - Register added and data example deported
     *    0.2.1 (09.09.2020) - Interactive support for plugin Emped with comments
     *    0.3.0 (09.09.2020) - Bundle attempt export default 
     *    0.4.0 (10.09.2020) - History Dates were wrong 
     *    0.4.1 (23.09.2020) - where added to showMenuBar
     *    0.7.0 (24.09.2020) - font awesome support for buttons and versions fixed to mach package version
+    *    0.8.0 (19.10.2020) - Codex sample button externalized
     **/
   
  import Menubar from './menubar'; 
@@ -59,7 +60,7 @@ export default class SoSIE extends Menubar {
                 logo:'http://sosie.sos-productions.com/assets/sosie.png',
                  url:'https://github.com/sosie-js/editor.js/', 
                  app: 'SoS正', 
-                 version:'0.7.0', 
+                 version:'0.8.0', 
                  title:'Improved Editor for Rectification (C2020) SoS-productions.com', 
                  text: editor_panel+'<div align="center"> based on <a href="http://editorjs.io">editor.js</a> from the Codex Team (Big thanks to them!).</div>',
                  style:'background-color: #4C50AF !important;'
@@ -154,7 +155,7 @@ export default class SoSIE extends Menubar {
        },{content:custom});
        
        const btn=super.addMenuItemBtn({   
-            type:'fa-'+icon,
+            type:(icon ? 'fa-'+icon : 'textbtn'),
             interactive: false,
             url:false,
             mode:id,
@@ -198,10 +199,25 @@ export default class SoSIE extends Menubar {
                 }
             });
            
-            //Now, shows SoSIE menubar using the div holder id, on top or bottom of the page
-            editor.sosie.showMenuBar('sosie','top');
+              function getURLParameter(sParam){
+                var sPageURL = window.location.search.substring(1);
+                var sURLVariables = sPageURL.split('&');
+
+                for(var i = 0; i < sURLVariables.length; i++){
+                    var sParameterName = sURLVariables[i].split('=');
+                    if (sParameterName[0] == sParam){
+                        return sParameterName[1];
+                    }
+                }
+                return '';
+            }
             
-            refreshBlocksStatusPanel();
+            var toolbarPos=getURLParameter('toolbar') || 'top';
+            //Now, shows SoSIE menubar using the div holder id, on top or bottom of the page
+            editor.sosie.showMenuBar('sosie',toolbarPos);
+            
+            refreshBlocksStatusPanel('after showMenuBar');
+          
         })
         
         return editor;

@@ -1,11 +1,7 @@
 [submodule "example/plugins/script-loader"]
 	path = example/plugins/script-loader
 	url = https://github.com/sosie-js/script-loader
-	branch = 3.2.0
-[submodule "example/tools/header"]
-	path = example/tools/header
-	url = https://github.com/editor-js/header
-	branch = master
+	branch = 4.0.0
 [submodule "example/tools/simple-image"]
 	path = example/tools/simple-image
 	url = https://github.com/sosie-js/simple-image
@@ -14,54 +10,14 @@
 	path = example/tools/delimiter
 	url = https://github.com/editor-js/delimiter
 	branch = master
-[submodule "example/tools/checklist"]
-	path = example/tools/checklist
-	url = https://github.com/editor-js/checklist
-	branch = master
-[submodule "example/tools/quote"]
-	path = example/tools/quote
-	url = https://github.com/editor-js/quote
-	branch = master
 [submodule "example/tools/code"]
 	path = example/tools/code
 	url = https://github.com/editor-js/code
-	branch = master
-[submodule "example/tools/embed"]
-	path = example/tools/embed
-	url = https://github.com/editor-js/embed
-	branch = master
-[submodule "example/tools/table"]
-	path = example/tools/table
-	url = https://github.com/editor-js/table
-	branch = master
-[submodule "example/tools/link"]
-	path = example/tools/link
-	url = https://github.com/editor-js/link
-	branch = master
-[submodule "example/tools/warning"]
-	path = example/tools/warning
-	url = https://github.com/editor-js/warning
-	branch = master
-[submodule "example/tools/marker"]
-	path = example/tools/marker
-	url = https://github.com/editor-js/marker
-	branch = master
-[submodule "example/tools/inline-code"]
-	path = example/tools/inline-code
-	url = https://github.com/editor-js/inline-code
-	branch = master
-[submodule "example/tools/paragraph"]
-	path = example/tools/paragraph
-	url = https://github.com/editor-js/paragraph
 	branch = master
 [submodule "example/tools/raw"]
 	path = example/tools/raw
 	url = https://github.com/editor-js/raw
 	branch = master
-[submodule "example/plugins/embed"]
-	path = example/plugins/embed
-	url = https://github.com/sosie-js/embed
-	branch = 4.0.0
 [submodule "example/plugins/tool-configurator"]
 	path = example/plugins/tool-configurator
 	url = https://github.com/sosie-js/tool-configurator
@@ -98,10 +54,6 @@
 	path = src/file-saver
 	url = https://github.com/eligrey/FileSaver.js
 	branch = master
-[submodule "src/downloadjs"]
-	path = src/downloadjs
-	url = https://github.com/rndme/download
-	branch = master
 [submodule "src/editor.js"]
 	path = src/editor.js
 	url = https://github.com/codex-team/editor.js
@@ -110,3 +62,47 @@
 	path = example/tools/list
 	url = https://github.com/sosie-js/list
 	branch = 1.6.1
+[submodule "example/tools/image"]
+	path = example/tools/image
+	url = https://github.com/sosie-js/image
+	branch = 2.6.1
+[submodule "example/tools/checklist"]
+	path = example/tools/checklist
+	url = https://github.com/sosie-js/checklist
+	branch = 1.2.1
+[submodule "example/tools/quote"]
+	path = example/tools/quote
+	url = https://github.com/sosie-js/quote
+	branch = 2.4.1
+[submodule "example/tools/header"]
+	path = example/tools/header
+	url = https://github.com/sosie-js/header
+	branch = 2.6.1
+[submodule "example/tools/embed"]
+	path = example/tools/embed
+	url = https://github.com/sosie-js/embed
+	branch = 2.4.1
+[submodule "example/tools/table"]
+	path = example/tools/table
+	url = https://github.com/sosie-js/table
+	branch = 1.3.1
+[submodule "example/tools/link"]
+	path = example/tools/link
+	url = https://github.com/sosie-js/link
+	branch = 2.3.2
+[submodule "example/tools/warning"]
+	path = example/tools/warning
+	url = https://github.com/sosie-js/warning
+	branch = 1.2.1
+[submodule "example/tools/marker"]
+	path = example/tools/marker
+	url = https://github.com/sosie-js/marker
+	branch = 1.2.3
+[submodule "example/tools/inline-code"]
+	path = example/tools/inline-code
+	url = https://github.com/sosie-js/inline-code
+	branch = 1.3.2
+[submodule "example/tools/paragraph"]
+	path = example/tools/paragraph
+	url = https://github.com/sosie-js/paragraph
+	branch = 2.8.1
