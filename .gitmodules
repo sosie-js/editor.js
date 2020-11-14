@@ -41,7 +41,7 @@
 [submodule "example/plugins/file-plugin"]
 	path = example/plugins/file-plugin
 	url = https://github.com/sosie-js/file-plugin
-	branch = 1.2.0
+	branch = 2.0.0
 [submodule "example/plugins/undo-plugin"]
 	path = example/plugins/undo-plugin
 	url = https://github.com/sosie-js/undo-plugin
